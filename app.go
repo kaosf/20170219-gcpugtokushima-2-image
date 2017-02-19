@@ -116,7 +116,9 @@ func handleTask(w http.ResponseWriter, r *http.Request) {
 	// テキストメッセージの場合
 	case *linebot.TextMessage:
 		responseMessage = linebot.NewTextMessage(message.Text)
-
+	// スタンプの場合
+	case *linebot.StickerMessage:
+		responseMessage = linebot.NewStickerMessage(message.PackageID, message.StickerID)
 	// 画像の場合
 	case *linebot.ImageMessage:
 		// 画像情報の取得
