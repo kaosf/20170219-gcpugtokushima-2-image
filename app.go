@@ -109,6 +109,7 @@ func handleTask(w http.ResponseWriter, r *http.Request) {
 	}
 
 	log.Infof(c, "EventType: %s\nMessage: %#v", e.Type, e.Message)
+	log.Infof(c, "UserId: %s\n", e.Source.UserID)
 	var responseMessage linebot.Message
 
 	// 受信したメッセージのタイプチェック
